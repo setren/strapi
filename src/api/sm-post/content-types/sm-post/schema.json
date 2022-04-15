@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sm_posts",
+  "info": {
+    "singularName": "sm-post",
+    "pluralName": "sm-posts",
+    "displayName": "SM Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "platform": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "string"
+    },
+    "contributor": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::people.people",
+      "inversedBy": "sm_posts"
+    },
+    "collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collection.collection",
+      "mappedBy": "sm_posts"
+    }
+  }
+}

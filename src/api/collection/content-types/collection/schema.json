@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collections",
+  "info": {
+    "singularName": "collection",
+    "pluralName": "collections",
+    "displayName": "Collection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "project_name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image_url": {
+      "type": "string",
+      "required": true
+    },
+    "news_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-post.news-post",
+      "inversedBy": "collections"
+    },
+    "people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::people.people",
+      "inversedBy": "collections"
+    },
+    "sm_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sm-post.sm-post",
+      "inversedBy": "collections"
+    }
+  }
+}

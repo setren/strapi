@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_posts",
+  "info": {
+    "singularName": "news-post",
+    "pluralName": "news-posts",
+    "displayName": "News Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "contributor": {
+      "type": "string",
+      "required": true
+    },
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::people.people",
+      "mappedBy": "news_posts"
+    },
+    "collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collection.collection",
+      "mappedBy": "news_posts"
+    }
+  }
+}

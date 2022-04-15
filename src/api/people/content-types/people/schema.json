@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "peoples",
+  "info": {
+    "singularName": "people",
+    "pluralName": "peoples",
+    "displayName": "People",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "identity": {
+      "type": "enumeration",
+      "enum": [
+        "anonymous",
+        "pseudonymous",
+        "identified"
+      ],
+      "required": true,
+      "default": "anonymous"
+    },
+    "news_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-post.news-post",
+      "inversedBy": "people"
+    },
+    "sm_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sm-post.sm-post",
+      "mappedBy": "people"
+    },
+    "collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collection.collection",
+      "mappedBy": "people"
+    }
+  }
+}
